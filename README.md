@@ -1,6 +1,6 @@
 # Cross-Stitch Builder
 
-A web app that allows you to convert pictures to cross-stitch patterns.
+A React app that allows you to convert pictures to cross-stitch patterns.
 
 ## Example photo:
 
@@ -19,8 +19,8 @@ A web app that allows you to convert pictures to cross-stitch patterns.
 Working project under development...
 
 Key features to complete:
--Ability to output file (e.g. pdf) with cross-stitch pattern symbols
--Support for additional, common cross-stitch floss/thread palettes
--Currently using a quantizer called RgbQuant.js by XXX to handle main image filtering, may add others and/or create my own
--General code clean-up
--Add tests
+- Ability to output file (e.g. pdf) with cross-stitch pattern symbols
+- Support for additional, common cross-stitch floss/thread palettes
+- Currently using a quantizer called [RgbQuant.js](https://github.com/leeoniya/RgbQuant.js) by leeoniya to handle main image filtering, may add others and/or create my own
+- General refactor for clean-up
+- Add tests
