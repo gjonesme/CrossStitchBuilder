@@ -8,13 +8,19 @@ A web app that allows you to convert pictures to cross-stitch patterns.
 
 ## Example result:
 
+<img alt="sunflower cross-stitch" src="https://github.com/gjonesme/CrossStitchBuilder/blob/main/assets/Screen%20Shot%202023-02-20%20at%2010.54.42%20PM.png" width="250px" />
 
+## App with filter options:
 
-## Available Scripts
+<img alt="cross-stitch app screen-shot" src="https://github.com/gjonesme/CrossStitchBuilder/blob/main/assets/Screen%20Shot%202023-02-20%20at%2010.55.00%20PM.png"  />
 
-In the project directory, you can run:
+## Current Status:
 
-### `yarn start`
+Working project under development...
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Key features to complete:
+-Ability to output file (e.g. pdf) with cross-stitch pattern symbols
+-Support for additional, common cross-stitch floss/thread palettes
+-Currently using a quantizer called RgbQuant.js by XXX to handle main image filtering, may add others and/or create my own
+-General code clean-up
+-Add tests
