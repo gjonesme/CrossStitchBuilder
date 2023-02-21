@@ -1,0 +1,15 @@
+.PaletteSelection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  justify-content: center;
+  /* margin-left: 10px; */
+  width: 90%;
+  border: 1px solid #000;
+}

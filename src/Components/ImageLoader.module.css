@@ -1,0 +1,23 @@
+.ImageLoaderContainer {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;
+  /* height: 50%; */
+}
+.ImageSelector {
+  width: 33%;
+  /* height: 100%; */
+  border: 1px solid black;
+  margin-top: 70px;
+  padding: 50px;
+}
+
+.ImageDisplay {
+  padding-top: 50px;
+}
+
+input {
+  display: none;
+}
