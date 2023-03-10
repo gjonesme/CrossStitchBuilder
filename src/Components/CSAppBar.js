@@ -1,43 +1,35 @@
 import React from "react";
-import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import HelpIcon from "@mui/icons-material/Help";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import StepLabel from "@mui/material/StepLabel";
 
 const CSAppBar = (props) => {
-  // const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set());
   const steps = [
     "Select Image",
     "Select Size",
-    "Select Palette",
-    "Reduce Colors",
+    "Configure Palette",
+    // "Reduce Colors",
+    "Build Pattern",
   ];
-  const isStepSkipped = (step) => {
-    return skipped.has(step);
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Stepper
             activeStep={props.activeStep}
             sx={{
@@ -49,10 +41,7 @@ const CSAppBar = (props) => {
             {steps.map((label, index) => {
               const stepProps = {};
               const labelProps = {};
-              if (isStepSkipped(index)) {
-                //can probably remove
-                stepProps.completed = false;
-              }
+
               if (props.activeStep === index) {
                 stepProps.active = true;
               }
@@ -104,9 +93,9 @@ const CSAppBar = (props) => {
               </Box>
             </React.Fragment>
           )}
-          <IconButton size="large" edge="end" aria-label="help" sx={{ ml: 2 }}>
+          {/* <IconButton size="large" edge="end" aria-label="help" sx={{ ml: 2 }}>
             <HelpIcon />
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </AppBar>
     </Box>

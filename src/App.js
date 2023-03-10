@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import CSAppBar from "./Components/CSAppBar";
 import CrossStitchBuilder from "./Components/CrossStitchBuilder";
 

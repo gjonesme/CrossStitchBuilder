@@ -10,14 +10,14 @@ const ImageLoader = (props) => {
 
   const imageRef = useRef(null);
 
-  const imageChangeHandler = (e) => {
+  const handleImageChange = (e) => {
     const url = URL.createObjectURL(e.target.files[0]);
-    props.handleSetImage(url);
+    props.handleImageChange(url);
     URL.revokeObjectURL(e.target.files[0]);
-    // console.log(getMeta(url));
+    getMeta(url);
   };
 
-  const clickHandler = (e) => {
+  const handleClick = (e) => {
     imageRef.current.click();
   };
 
@@ -30,29 +30,47 @@ const ImageLoader = (props) => {
     return img;
   };
 
-  return (
-    <div className={styles.ImageLoaderContainer}>
-      <div className={styles.ImageSelector}>
-        <input
-          type="file"
-          ref={imageRef}
-          accept="image/*"
-          onChange={imageChangeHandler}
-        />
-        <Button variant="outlined" id="fileSelect" onClick={clickHandler}>
-          Upload Image
-        </Button>
+  if (props.image) {
+    return (
+      <div className={styles.ImageLoaderContainer}>
+        <div className={styles.ImageSelector}>
+          <input
+            type="file"
+            ref={imageRef}
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+          <Button variant="outlined" id="fileSelect" onClick={handleClick}>
+            Upload Image
+          </Button>
+        </div>
+        <div className={styles.ImageDisplay}>
+          <img
+            src={props.image}
+            alt={""}
+            height={naturalHeight >= naturalWidth ? "500px" : ""}
+            width={naturalWidth > naturalHeight ? "500px" : ""}
+          ></img>
+        </div>
       </div>
-      <div className={styles.ImageDisplay}>
-        <img
-          src={props.image}
-          alt={""}
-          height={naturalHeight >= naturalWidth ? "500px" : ""}
-          width={naturalWidth > naturalHeight ? "500px" : ""}
-        ></img>
+    );
+  } else {
+    return (
+      <div className={styles.ImageLoaderContainer}>
+        <div className={styles.ImageSelector}>
+          <input
+            type="file"
+            ref={imageRef}
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+          <Button variant="outlined" id="fileSelect" onClick={handleClick}>
+            Upload Image
+          </Button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default ImageLoader;

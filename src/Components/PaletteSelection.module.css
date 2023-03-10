@@ -1,10 +1,13 @@
 .PaletteSelection {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* border: 1px solid blue; */
+  width: 50%;
 }
 
-ul {
+.UsedColorList {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -12,4 +15,5 @@ ul {
   /* margin-left: 10px; */
   width: 90%;
   border: 1px solid #000;
+  align-self: center;
 }

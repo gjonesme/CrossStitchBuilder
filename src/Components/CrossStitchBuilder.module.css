@@ -3,13 +3,14 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   /* border: solid 1px red; */
+  overflow: hidden;
 }
 .ImageContainer {
   /* border: solid 1px blue; */
-  display: flex;
-  flex-direction: row;
+  display: block;
+  /* flex-direction: row; */
   /* justify-content: center;
   align-items: center; */
 }
@@ -26,7 +27,7 @@
 
 .ControlsContainer {
   /* border: solid 1px green; */
-  display: flex;
+  /* display: flex; */
   /* width: 50%; */
   /* height: 100%; */
   padding: 10px;

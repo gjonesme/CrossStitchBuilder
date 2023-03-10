@@ -6,9 +6,6 @@ import TextField from "@mui/material/TextField";
 import Slider from "@mui/material/Slider";
 
 const ControlPanel2 = (props) => {
-  const handleSizeChange = (e) => {
-    props.handleSizeChange(e.target.value);
-  };
   const handleWidthChange = (e) => {
     props.handleWidthChange(e.target.value);
   };
@@ -17,9 +14,9 @@ const ControlPanel2 = (props) => {
   };
 
   return (
-    <Grid container spacing={1} justifyContent="center">
+    <Grid container rowSpacing={3}>
       <Grid container item justifyContent="center">
-        <Typography>Cross-Stitch Builder</Typography>
+        <h2>Pattern Sizing</h2>
       </Grid>
       <Grid container item spacing={2} xs>
         <Grid item xs={6}>
@@ -58,11 +55,9 @@ const ControlPanel2 = (props) => {
         <Slider
           size="medium"
           valueLabelDisplay="on"
-          //   onChange={handleSizeChange}
           onChange={
             props.width > props.height ? handleWidthChange : handleHeightChange
           }
-          //   value={props.size}
           value={Math.max(props.width, props.height)}
           min={1}
           max={300}

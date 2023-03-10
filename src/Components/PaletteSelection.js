@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./PaletteSelection.module.css";
 import FormControl from "@mui/material/FormControl";
@@ -11,22 +11,9 @@ import Slider from "@mui/material/Slider";
 import UsedColorBlock from "./UsedColorBlock";
 
 const PaletteSelection = (props) => {
-  const [palette, setPalette] = useState("DMC");
-  const [quantization, setQuantization] = useState("rgbquant");
-
-  const handlePaletteChange = (e) => {
-    setPalette(e.target.value);
-  };
-  const handleQuantiztionChange = (e) => {
-    setQuantization(e.target.value);
-  };
-
   let usedColors = props.usedColors.map((color) => (
-    // <li>{color["Floss Name"]}</li>
     <UsedColorBlock color={color} key={color["#RGB"]}></UsedColorBlock>
   ));
-
-  console.log(props.usedColors);
 
   return (
     <div className={styles.PaletteSelection}>
@@ -36,16 +23,27 @@ const PaletteSelection = (props) => {
         <Select
           labelId="palette-label"
           id="palette-select"
-          value={palette}
+          value={props.palette}
           label="Palette"
           disabled={true}
-          onChange={handlePaletteChange}
+          onChange={props.handlePaletteChange}
         >
-          <MenuItem value={"DMC"}>DMC</MenuItem>
-          <MenuItem value={"Anchor"}>Anchor</MenuItem>
-          <MenuItem value={"Sullivans"}>Sullivans</MenuItem>
-          <MenuItem value={"J&P Coats"}>{`J&P Coats`}</MenuItem>
-          <MenuItem value={"CXC"}>CXC</MenuItem>
+          <MenuItem value={"DMC"} sx={{ width: "auto" }}>
+            DMC
+          </MenuItem>
+          <MenuItem value={"Anchor"} sx={{ width: "auto" }}>
+            Anchor
+          </MenuItem>
+          <MenuItem value={"Sullivans"} sx={{ width: "auto" }}>
+            Sullivans
+          </MenuItem>
+          <MenuItem
+            value={"J&P Coats"}
+            sx={{ width: "auto" }}
+          >{`J&P Coats`}</MenuItem>
+          <MenuItem value={"CXC"} sx={{ width: "auto" }}>
+            CXC
+          </MenuItem>
         </Select>
       </FormControl>
       <Typography>Max Number of Colors:</Typography>
@@ -74,8 +72,39 @@ const PaletteSelection = (props) => {
           label="Distance"
           onChange={props.handleDistanceChange}
         >
-          <MenuItem value={"euclidean"}>Euclidean</MenuItem>
-          <MenuItem value={"manhattan"}>Manhattan</MenuItem>
+          <MenuItem value={"cie94-textiles"} sx={{ width: "auto" }}>
+            cie94-textiles
+          </MenuItem>
+          <MenuItem value={"cie94-graphic-arts"} sx={{ width: "auto" }}>
+            cie94-graphic-arts
+          </MenuItem>
+          <MenuItem value={"ciede2000"} sx={{ width: "auto" }}>
+            ciede2000
+          </MenuItem>
+          <MenuItem value={"color-metric"} sx={{ width: "auto" }}>
+            color-metric
+          </MenuItem>
+          <MenuItem value={"euclidean"} sx={{ width: "auto" }}>
+            euclidean
+          </MenuItem>
+          <MenuItem value={"euclidean-bt709-noalpha"} sx={{ width: "auto" }}>
+            euclidean-bt709-noalpha
+          </MenuItem>
+          <MenuItem value={"euclidean-bt709"} sx={{ width: "auto" }}>
+            euclidean-bt709
+          </MenuItem>
+          <MenuItem value={"manhattan"} sx={{ width: "auto" }}>
+            manhattan
+          </MenuItem>
+          <MenuItem value={"manhattan-bt709"} sx={{ width: "auto" }}>
+            manhattan-bt709
+          </MenuItem>
+          <MenuItem value={"manhattan-nommyde"} sx={{ width: "auto" }}>
+            manhattan-nommyde
+          </MenuItem>
+          <MenuItem value={"pngquant"} sx={{ width: "auto" }}>
+            pngquant
+          </MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1 }}>
@@ -83,12 +112,23 @@ const PaletteSelection = (props) => {
         <Select
           labelId="quantiztion-label"
           id="quantiztion-select"
-          value={quantization}
+          value={props.quantizer}
           label="Color Quantization"
-          disabled={true}
-          onChange={handleQuantiztionChange}
+          //   disabled={true}
+          onChange={props.handleQuantizerChange}
         >
-          <MenuItem value={"rgbquant"}>rgbquant</MenuItem>
+          <MenuItem value={"rgbquant"} sx={{ width: "auto" }}>
+            rgbquant
+          </MenuItem>
+          <MenuItem value={"neuquant"} sx={{ width: "auto" }}>
+            neuquant
+          </MenuItem>
+          <MenuItem value={"neuquant-float"} sx={{ width: "auto" }}>
+            neuquant-float
+          </MenuItem>
+          <MenuItem value={"wuquant"} sx={{ width: "auto" }}>
+            wuquant
+          </MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1 }}>
@@ -96,26 +136,44 @@ const PaletteSelection = (props) => {
         <Select
           labelId="dither-label"
           id="dither-select"
-          value={props.dither === null ? "None" : props.dither}
+          value={props.dither}
           label="Dithering"
           onChange={props.handleDitherChange}
         >
-          <MenuItem value={"None"}>None</MenuItem>
-          <MenuItem value={"FloydSteinberg"}>Floyd-Steinberg</MenuItem>
-          <MenuItem value={"FalseFloydSteinberg"}>
+          <MenuItem value={"nearest"} sx={{ width: "auto" }}>
+            None
+          </MenuItem>
+          <MenuItem value={"floyd-steinberg"} sx={{ width: "auto" }}>
+            Floyd-Steinberg
+          </MenuItem>
+          <MenuItem value={"false-floyd-steinberg"} sx={{ width: "auto" }}>
             False Floyd-Steinberg
           </MenuItem>
-          <MenuItem value={"Stucki"}>Stucki</MenuItem>
-          <MenuItem value={"Atkinson"}>Atkinson</MenuItem>
-          <MenuItem value={"Jarvis"}>Jarvis</MenuItem>
-          <MenuItem value={"Burkes"}>Burkes</MenuItem>
-          <MenuItem value={"Sierra"}>Sierra</MenuItem>
-          <MenuItem value={"TwoSierra"}>Two Sierra</MenuItem>
-          <MenuItem value={"SierraLite"}>Sierra Lite</MenuItem>
+          <MenuItem value={"stucki"} sx={{ width: "auto" }}>
+            Stucki
+          </MenuItem>
+          <MenuItem value={"atkinson"} sx={{ width: "auto" }}>
+            Atkinson
+          </MenuItem>
+          <MenuItem value={"jarvis"} sx={{ width: "auto" }}>
+            Jarvis
+          </MenuItem>
+          <MenuItem value={"burkes"} sx={{ width: "auto" }}>
+            Burkes
+          </MenuItem>
+          <MenuItem value={"sierra"} sx={{ width: "auto" }}>
+            Sierra
+          </MenuItem>
+          <MenuItem value={"two-sierra"} sx={{ width: "auto" }}>
+            Two Sierra
+          </MenuItem>
+          <MenuItem value={"sierra-lite"} sx={{ width: "auto" }}>
+            Sierra Lite
+          </MenuItem>
         </Select>
       </FormControl>
       <h4>Active Colors:</h4>
-      <ul>{usedColors}</ul>
+      <ul className={styles.UsedColorList}>{usedColors}</ul>
     </div>
   );
 };
