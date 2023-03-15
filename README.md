@@ -21,6 +21,5 @@ Working project under development...
 Key features to complete:
 - Ability to output file (e.g. pdf) with cross-stitch pattern symbols
 - Support for additional, common cross-stitch floss/thread palettes
-- Currently using a quantizer called [RgbQuant.js](https://github.com/leeoniya/RgbQuant.js) by leeoniya to handle main image filtering, may add others and/or create my own
-- General refactor for clean-up
+- Currently using a quantizer called [image-q](https://github.com/ibezkrovnyi/image-quantization) by ibezkrovnyi
 - Add tests
