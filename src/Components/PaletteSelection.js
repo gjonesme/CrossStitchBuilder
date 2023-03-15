@@ -9,17 +9,29 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 import UsedColorBlock from "./UsedColorBlock";
+import Tooltip from "@mui/material/Tooltip";
 
 const PaletteSelection = (props) => {
   let usedColors = props.usedColors.map((color) => (
     <UsedColorBlock color={color} key={color["#RGB"]}></UsedColorBlock>
   ));
 
+  const distanceTooltip =
+    "Determines the method used to calculated the distance between an image's color and the available palette colors.";
+  const paletteTooltip = "Select a color palette by thread/floss manufacturer.";
+  const quantizationTooltip =
+    "The algorithm used to reduce the image colors to the selected palette.";
+  const ditherTooltip =
+    "Dithering is a method of balancing out color error within an image, it is most effective on patterns with many stitches.";
+
   return (
     <div className={styles.PaletteSelection}>
       <h2>Palette Selection</h2>
       <FormControl sx={{ m: 1 }}>
-        <InputLabel id="palette-label">Palette</InputLabel>
+        <Tooltip title={paletteTooltip} arrow>
+          <InputLabel id="palette-label">Palette</InputLabel>
+        </Tooltip>
+
         <Select
           labelId="palette-label"
           id="palette-select"
@@ -64,7 +76,10 @@ const PaletteSelection = (props) => {
         sx={{ m: 1 }}
       ></TextField>
       <FormControl sx={{ m: 1 }}>
-        <InputLabel id="distance-label">Distance</InputLabel>
+        <Tooltip title={distanceTooltip} arrow>
+          <InputLabel id="distance-label">Distance</InputLabel>
+        </Tooltip>
+
         <Select
           labelId="distance-label"
           id="distance-select"
@@ -108,7 +123,10 @@ const PaletteSelection = (props) => {
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1 }}>
-        <InputLabel id="quantiztion-label">Color Quantization</InputLabel>
+        <Tooltip title={quantizationTooltip} arrow>
+          <InputLabel id="quantiztion-label">Color Quantization</InputLabel>
+        </Tooltip>
+
         <Select
           labelId="quantiztion-label"
           id="quantiztion-select"
@@ -132,7 +150,10 @@ const PaletteSelection = (props) => {
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1 }}>
-        <InputLabel id="dither-label">Dithering</InputLabel>
+        <Tooltip title={ditherTooltip} arrow>
+          <InputLabel id="dither-label">Dithering</InputLabel>
+        </Tooltip>
+
         <Select
           labelId="dither-label"
           id="dither-select"
